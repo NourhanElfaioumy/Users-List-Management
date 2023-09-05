@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "ahmed",
+      "email": "a@test.com",
+      "phone": "4353453543",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "omar",
+      "email": "a@test.com",
+      "phone": "372636722",
+      "status": "soft_deleted"
+    },
+    {
+      "id": 3,
+      "name": "ali",
+      "email": "c@test.com",
+      "phone": "82736",
+      "status": "active"
+    }
+  ],
+  "usersCredentials": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "password1",
+      "isAdmin": "true"
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "password2",
+      "isAdmin": "false"
+    }
+  ]
+}

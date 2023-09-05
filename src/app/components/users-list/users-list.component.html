@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-between">
+  <div class="d-flex">
+    <a mat-raised-button color="success" (click)="switchLanguage('en')">English</a>
+    <a mat-raised-button color="primary" (click)="switchLanguage('ar')" style="margin-left: 2%">Arabic</a>
+  </div>
+  <div>
+    <a mat-raised-button color="accent" (click)="logout()">{{"Logout" | translate}}</a>
+  </div>
+</div>
+
+<h2 class="text-center">{{"User Listing" | translate}}</h2>
+
+<div class="mat-elevation-z8">
+  <div class="table-header">
+    <div style="margin: 2%">
+      <a mat-raised-button color="primary" (click)="Openpopup('')" style="margin: 2%"
+        *ngIf="showItems">{{"Create New User" | translate}}</a>
+    </div>
+    <mat-form-field>
+      <mat-label>{{"Filter" | translate}}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+    </mat-form-field>
+  </div>
+  <table mat-table [dataSource]="datasource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Id" | translate}}</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"Name" | translate}}</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef> {{"Email" | translate}}</th>
+      <td mat-cell *matCellDef="let element">{{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone">
+      <th mat-header-cell *matHeaderCellDef> {{"Phone" | translate}}</th>
+      <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> {{"Status" | translate}}</th>
+      <td mat-cell *matCellDef="let element">{{element.status}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef> {{"Action" | translate}}</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="showItems">
+          <a mat-raised-button (click)="EditUser(element.id)" color="primary">{{"Edit" | translate}}</a> |
+          <a mat-raised-button (click)="RemoveUser(element.id)" color="accent">{{"Delete" | translate}}</a>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColums"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColums;"></tr>
+
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

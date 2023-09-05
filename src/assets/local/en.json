@@ -1,0 +1,16 @@
+{
+  "User Listing": "User Listing",
+  "Id": "Id",
+  "Name": "Name",
+  "Email": "Email",
+  "Phone": "Phone",
+  "Status": "Status",
+  "Action": "Actions",
+  "Filter":"Filter",
+  "Edit":"Edit",
+  "Delete":"Delete",
+  "Create New User":"Create New User",
+  "Save":"Save",
+  "Cancel":"Cancel",
+  "Logout":"Logout"
+}
